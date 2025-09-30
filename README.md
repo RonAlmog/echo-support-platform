@@ -27,8 +27,18 @@ Your `tailwind.config.ts` and `globals.css` are already set up to use the compon
 To use the components in your app, import them from the `ui` package.
 
 ```tsx
-import { Button } from "@workspace/ui/components/button"
+import { Button } from "@workspace/ui/components/button";
 ```
 
 ## run the project:
+
 turbo dev
+
+## links
+
+https://ui.shadcn.com/docs/monorepo
+
+## add component
+
+cd apps/web
+pnpm dlx shadcn@canary add input
