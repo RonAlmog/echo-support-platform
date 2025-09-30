@@ -12,6 +12,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.2.3",
     "@workspace/math": "workspace:*",
     "@workspace/ui": "workspace:*",
     "lucide-react": "^0.475.0",
