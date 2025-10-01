@@ -1,7 +1,8 @@
+"use client";
+import { api } from "@workspace/backend/_generated/api";
 import { add } from "@workspace/math/add";
 import { Button } from "@workspace/ui/components/button";
 import { useQuery } from "convex/react";
-import { api } from "../../../packages/backend/convex/_generated/api";
 
 export default function Page() {
   const users = useQuery(api.users.getAllUsers) || [];
