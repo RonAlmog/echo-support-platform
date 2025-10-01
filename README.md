@@ -42,3 +42,6 @@ https://ui.shadcn.com/docs/monorepo
 
 cd apps/web
 pnpm dlx shadcn@canary add input
+
+fullstack monorepo template with expo, turbo, next, convex, clerk
+https://github.com/get-convex/turbo-expo-nextjs-clerk-convex-monorepo
