@@ -45,3 +45,6 @@ pnpm dlx shadcn@canary add input
 
 fullstack monorepo template with expo, turbo, next, convex, clerk
 https://github.com/get-convex/turbo-expo-nextjs-clerk-convex-monorepo
+
+convex nextjs quickstart:
+https://docs.convex.dev/quickstart/nextjs
