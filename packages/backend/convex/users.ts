@@ -10,6 +10,12 @@ export const getAllUsers = query({
 export const addUser = mutation({
   args: {},
   handler: async (ctx) => {
+    const identity = await ctx.auth.getUserIdentity();
+    if (!identity) {
+      throw new Error("Not authenticated");
+    }
+    console.log("User identity:", identity);
+
     const user = await ctx.db.insert("users", {
       name: "John Doe",
       email: "john.doe@example.com",
