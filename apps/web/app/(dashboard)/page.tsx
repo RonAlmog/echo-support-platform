@@ -8,7 +8,7 @@ import {
   Authenticated,
   Unauthenticated,
 } from "convex/react";
-import { SignInButton, UserButton } from "@clerk/nextjs";
+import { OrganizationSwitcher, SignInButton, UserButton } from "@clerk/nextjs";
 
 export default function Page() {
   const users = useQuery(api.users.getAllUsers) || [];
@@ -21,6 +21,7 @@ export default function Page() {
           <div className="flex flex-col items-center justify-center gap-4">
             <div className="mt-4">
               <UserButton />
+              <OrganizationSwitcher hidePersonal />
             </div>
             <h1 className="text-2xl font-bold">Apps/Web</h1>
             <Button size="sm" onClick={() => AddUser()}>
