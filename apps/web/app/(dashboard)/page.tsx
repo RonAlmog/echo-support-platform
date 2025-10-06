@@ -1,6 +1,5 @@
 "use client";
 import { api } from "@workspace/backend/_generated/api";
-import { addUser } from "@workspace/backend/users";
 import { Button } from "@workspace/ui/components/button";
 import {
   useMutation,
@@ -28,14 +27,14 @@ export default function Page() {
               Add user
             </Button>
 
-            <div>
+            {/* <div>
               {users.map((user) => (
                 <div key={user._id} className="p-2 border-b">
                   <p className="font-semibold">{user.name}</p>
                   <p className="text-sm text-gray-500">{user.email}</p>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </Authenticated>
