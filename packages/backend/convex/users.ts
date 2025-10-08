@@ -2,6 +2,7 @@ import { mutation, query } from "./_generated/server";
 
 export const getAllUsers = query({
   args: {},
+  // @ts-ignore
   handler: async (ctx) => {
     const users = await ctx.db.query("users").collect();
     return users;
@@ -10,6 +11,7 @@ export const getAllUsers = query({
 
 export const addUser = mutation({
   args: {},
+  // @ts-ignore
   handler: async (ctx) => {
     const identity = await ctx.auth.getUserIdentity();
     if (!identity) {
