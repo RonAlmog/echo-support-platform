@@ -27,6 +27,7 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "@workspace/ui/components/sidebar";
+import { url } from "inspector";
 
 const customerSupportItems = [
   { title: "Conversations", url: "/conversations", icon: InboxIcon },
@@ -35,6 +36,12 @@ const customerSupportItems = [
 
 export const DashboardSidebar = () => {
   const pathname = usePathname();
+  const isActive = (url: string) => {
+    if (url === "/") {
+      return pathname === url;
+    }
+    return pathname.startsWith(url);
+  };
 
   return (
     <Sidebar className="group" collapsible="icon">
@@ -48,10 +55,27 @@ export const DashboardSidebar = () => {
         </SidebarMenu>
         <UserButton />
       </SidebarHeader>
-      <SidebarContent></SidebarContent>
-      <SidebarFooter>
-        <Image src="/logo.svg" alt="Logo" width={120} height={40} />
-      </SidebarFooter>
+      <SidebarContent>
+        {/* customer support */}
+        <SidebarGroup>
+          <SidebarGroupLabel>Customer Support</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {customerSupportItems.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton asChild isActive={isActive(item.url)}>
+                    <Link href={item.url}>
+                      <item.icon className="mr-2 size-4" />
+                      {item.title}
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+      </SidebarContent>
+      <SidebarRail />
     </Sidebar>
   );
 };
