@@ -34,6 +34,16 @@ const customerSupportItems = [
   { title: "Knowledge Base", url: "/files", icon: LibraryBigIcon },
 ];
 
+const configurationItems = [
+  { title: "Widget customization", url: "/customization", icon: PaletteIcon },
+  { title: "Integrations", url: "/integrations", icon: LayoutDashboardIcon },
+  { title: "Voice Assistant", url: "/plugins/vapi", icon: Mic },
+];
+
+const accountItems = [
+  { title: "Plans & Billing", url: "/billing", icon: CreditCardIcon },
+];
+
 export const DashboardSidebar = () => {
   const pathname = usePathname();
   const isActive = (url: string) => {
@@ -74,7 +84,51 @@ export const DashboardSidebar = () => {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+        {/* configuration */}
+        <SidebarGroup>
+          <SidebarGroupLabel>Configuration</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {configurationItems.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton asChild isActive={isActive(item.url)}>
+                    <Link href={item.url}>
+                      <item.icon className="mr-2 size-4" />
+                      {item.title}
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        {/* account */}
+        <SidebarGroup>
+          <SidebarGroupLabel>Account</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {accountItems.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton asChild isActive={isActive(item.url)}>
+                    <Link href={item.url}>
+                      <item.icon className="mr-2 size-4" />
+                      {item.title}
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
       </SidebarContent>
+      <SidebarFooter>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <UserButton showName />
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   );
