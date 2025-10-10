@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useEffect } from "react";
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 import {
   CreditCardIcon,
@@ -46,6 +47,11 @@ const accountItems = [
 
 export const DashboardSidebar = () => {
   const pathname = usePathname();
+  useEffect(() => {
+    // HMR probe: harmless mount log to test HMR stability
+    // eslint-disable-next-line no-console
+    console.debug("DashboardSidebar mounted (HMR probe)");
+  }, []);
   const isActive = (url: string) => {
     if (url === "/") {
       return pathname === url;
