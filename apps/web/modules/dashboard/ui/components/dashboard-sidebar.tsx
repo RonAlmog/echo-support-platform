@@ -28,7 +28,6 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "@workspace/ui/components/sidebar";
-import { url } from "inspector";
 
 const customerSupportItems = [
   { title: "Conversations", url: "/conversations", icon: InboxIcon },
@@ -48,9 +47,9 @@ const accountItems = [
 export const DashboardSidebar = () => {
   const pathname = usePathname();
   useEffect(() => {
-    // HMR probe: harmless mount log to test HMR stability
+    // HMR probe: harmless mount log to test HMR stability (toggled)
     // eslint-disable-next-line no-console
-    console.debug("DashboardSidebar mounted (HMR probe)");
+    console.debug("DashboardSidebar mounted (HMR probe) - toggled");
   }, []);
   const isActive = (url: string) => {
     if (url === "/") {
